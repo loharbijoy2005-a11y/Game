@@ -1,82 +1,72 @@
-# 🏃 Stickman Temple Run - Endless Runner 3D
+# 🏃 Stickman Temple Run 3D - C++ Raylib Version
 
-Stickman Temple Run is a polished, lightweight, 3D perspective endless runner game built from scratch using HTML5 Canvas, modern CSS glassmorphism styling, and custom synthesized real-time audio. Escape the ancient temple spirits by jumping, sliding, and shifting lanes to dodge obstacle barricades, deep pit fissures, and low-clearance stone arches!
+Stickman Temple Run 3D is a native desktop 3D endless runner game built from scratch in **C++** using the **Raylib** graphics library. Escape the ancient temple spirits by jumping, sliding, and shifting lanes to dodge obstacle barricades, deep pit fissures, and low-clearance stone arches!
 
-## 🕹️ How to Play & Controls
+This version features **true 3D perspective camera projections**, a **3D skeletal stickman drawing algorithm** rendering running/jumping/sliding animations using mathematical primitives, and a **real-time procedural sound synthesizer** generating all audio effects in memory.
 
-The game is playable on both desktop and mobile/touch browsers:
+---
 
-### Keyboard Controls (Desktop)
-* **Left Arrow** / **A**: Switch Lane Left (bank lean shift)
-* **Right Arrow** / **D**: Switch Lane Right (bank lean shift)
-* **Up Arrow** / **W** / **SPACE**: Jump (leaps over barricades and pit fissures)
-* **Down Arrow** / **S**: Slide / Duck (slides under high stone arches)
+## 🕹️ Controls & Menus
 
-### Touch / Click Controls (Mobile & Desktop Overlay)
-* **◀ Button**: Switch Lane Left
-* **▶ Button**: Switch Lane Right
-* **JUMP Button**: Jump
-* **SLIDE Button**: Slide / Duck
-* **🔊/🔇 Floating Button (Bottom Right)**: Toggle sound effects and background music loop.
+### Menu Controls:
+* **ENTER** / **SPACE** / **UP** / **W**: Start/Restart Run
+* **H**: Open How to Play instructions
+* **ESC** / **B**: Back to Main Menu from Instructions
+* **ESC** / **M**: Exit Game Over screen back to Main Menu
+
+### Running Controls:
+* **Left Arrow** / **A**: Switch Lane Left (leans and banks left)
+* **Right Arrow** / **D**: Switch Lane Right (leans and banks right)
+* **Up Arrow** / **W** / **SPACE**: Jump (clears barricades and pit fissures)
+* **Down Arrow** / **S**: Slide / Duck (slides beneath high stone arches)
 
 ---
 
 ## 🛡️ Power-Ups & Collectibles
-* **🪙 Gold Coins**: Collect coins to increase your high score multipliers. Each coin adds 12 points to your total run score.
-* **🛡️ Shield**: Absorbs a single crash against barrier boards or stone arches. *Note: Shields do not protect against falling into deep ground pits.*
-* **🧲 Magnet**: Magnetizes nearby gold coins, pulling them towards you automatically.
-* **⚡ Speed Boost**: Grants temporary invincibility, breaks obstacles, and boosts running speed.
+* **🪙 Gold Coins**: Collect coins to increase your score multiplier. Each coin adds 12 points to your total run score.
+* **🛡️ Shield (Blue Aura)**: Absorbs a single crash against barricades or stone arches. *Note: Shields do not protect against falling into ground pits.*
+* **🧲 Magnet (Yellow Aura)**: Attracts nearby gold coins, pulling them towards you automatically.
+* **⚡ Speed Boost (Red Aura)**: Grants temporary invincibility, breaks obstacles, and boosts running speed.
 
 ---
 
-## 🛠️ Local Development & Setup
+## 🛠️ Compilation & Local Build Guide
 
-This is a **zero-dependency, single-file production-ready project**. Everything (HTML layout, CSS styling, Web Audio API synthesis, and 3D Canvas rendering logic) is self-contained inside `index.html`.
+To build and run the game, you will need a C++ compiler (`g++` / MinGW-w64) and the Raylib library installed.
 
-### Run Locally:
-1. Double-click `index.html` to open it in any modern web browser.
-2. Click **RUN NOW** to start playing!
+### Windows (MSYS2 / MinGW-w64):
+1. Install MSYS2 from [msys2.org](https://www.msys2.org/).
+2. Open the MSYS2 MinGW-w64 terminal and install GCC and Raylib:
+   ```bash
+   pacman -S mingw-w64-x86_64-gcc mingw-w64-x86_64-raylib
+   ```
+3. Add MinGW-w64 binary path (typically `C:\msys64\mingw64\bin`) to your system **PATH** environment variable.
+4. Double-click the **[`compile.bat`](file:///d:/game/compile.bat)** script inside the project folder, or compile it manually in your terminal:
+   ```bash
+   g++ main.cpp -o game.exe -lraylib -lopengl32 -lgdi32 -lwinmm -mwindows
+   ```
+5. Run the generated **`game.exe`** to play!
+
+### macOS / Linux:
+1. Install Raylib:
+   * **macOS** (Homebrew): `brew install raylib`
+   * **Ubuntu/Debian**: `sudo apt install libraylib-dev`
+2. Compile via Terminal:
+   ```bash
+   # macOS
+   g++ main.cpp -o game -lraylib -framework OpenGL -framework Cocoa -framework IOKit -framework CoreVideo
+   
+   # Linux
+   g++ main.cpp -o game -lraylib -lGL -lm -lpthread -ldl -lrt -lX11
+   ```
+3. Run with `./game`!
 
 ---
 
-## 🐙 Git Deployment: Transforming your Repository
-
-To rename `test.txt` into `index.html` directly inside your GitHub repository and deploy the game, follow these instructions.
-
-### Option A: Via Command Line (Git Terminal)
-
-Run the following commands in your local project terminal:
-
-```bash
-# 1. Initialize git (if not already initialized)
-git init
-
-# 2. Add the remote URL
-git remote add origin https://github.com/loharbijoy2005-a11y/Game.git
-
-# 3. Pull the remote files (gets the test.txt)
-git pull origin main
-
-# 4. Rename test.txt to index.html using Git
-git mv test.txt index.html
-
-# 5. Add index.html and README.md
-git add index.html README.md
-
-# 6. Commit the changes
-git commit -m "Transform repository into polished 3D endless runner web game"
-
-# 7. Push to GitHub
-git push -u origin main
-```
-
-### Option B: Directly on the GitHub Web Interface
-
-If you do not have Git installed locally, you can rename the file directly on GitHub:
-1. Go to your repository on GitHub: `https://github.com/loharbijoy2005-a11y/Game.git`
-2. Click on the `test.txt` file.
-3. Click the **pencil icon** ✏️ (Edit this file) in the top-right corner.
-4. Delete the name `test.txt` in the file name input box and type `index.html`.
-5. Replace the contents of the text editor box with the entire contents of your new `index.html` file.
-6. Click **Commit changes...** at the top right to save.
-7. To add the `README.md`, click **Add file** -> **Create new file** on the repository main page, name it `README.md`, paste this README content, and click **Commit changes...**.
+## 📦 Project Architecture
+* **[`main.cpp`](file:///d:/game/main.cpp)**: Unified game logic, including:
+  * **3D Stickman Animator**: Computes skeletal coordinates for nodes (head, hip, knees, elbows, feet, hands) and draws them dynamically using Raylib cylinders and spheres.
+  * **Procedural Synth**: Generates custom sound waves (using math formula envelopes) in system RAM and streams them to the sound card.
+  * **Physics Loop**: Adjusts speed, gravity, and animations using delta time (`GetFrameTime()`) for frame-rate independence.
+  * **Bounding Collision**: High-accuracy spatial collision checking to prevent objects clipping through player coordinates.
+* **`highscore.dat`**: Locally saves your best runs.
