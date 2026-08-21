@@ -1,6 +1,6 @@
-# 🔫 ShadowArrow - Free Fire Web 3D
+# 🔫 ShadowArrow - 3D Tactical Shooter
 
-ShadowArrow is a complete, lightweight, standalone 3D Third-Person Shooter (TPS) web prototype inspired by Free Fire. Built from scratch in vanilla HTML5, CSS3, and JavaScript using the **Three.js** WebGL graphics engine, the game runs directly inside Google Chrome without requiring any local app build tools, compilers, or server setups.
+ShadowArrow is a complete, lightweight, standalone 3D Third-Person Shooter (TPS) web prototype. Built from scratch in vanilla HTML5, CSS3, and JavaScript using the **Three.js** WebGL graphics engine, the game runs directly inside Google Chrome without requiring any local app build tools, compilers, or server setups.
 
 ---
 
